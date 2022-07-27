@@ -9,8 +9,17 @@ public class MenuScript : MonoBehaviour
 
     public void NextLevel()
     {
-        //Use SceneManager to move to next Level
-        //Make sure you connect it to Button
+        SceneManager.LoadScene(levelName);
     }
 
+    //Used by a Trigger Collider 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            NextLevel();
+        }
+    }
 }
+
+
